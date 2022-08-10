@@ -41,8 +41,17 @@ resource "google_compute_instance" "bastion_host" {
     scopes = var.scopes
   }
 
-  tags   = [var.tag]
-  labels = var.labels
+  tags = [var.tag]
+  labels = merge(var.labels, {
+    git_commit           = "6754838438d6f6fb38917ac490a452841f2c28d5"
+    git_file             = "main_tf"
+    git_last_modified_at = "2022-08-10-18-49-28"
+    git_last_modified_by = "65673629akas2020"
+    git_modifiers        = "65673629akas2020"
+    git_org              = "Makas2020"
+    git_repo             = "checking-terraform"
+    yor_trace            = "181f0de5-a56d-424a-817a-125c104acd33"
+  })
   metadata = var.metadata
 }
 
